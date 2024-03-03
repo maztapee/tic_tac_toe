@@ -3,13 +3,15 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 
-function Square ({value}){
+function Square (){
+  const [value, setValues] = useState(null);
+  function handleClick(){
+    setValues('X');
+  };
   return (
     <>
     <div className='square-row'>
-      <button className='squares'> {value} </button>
-      <button className='squares'> {value} </button>
-      <button className='squares'> {value} </button>
+      <button className='squares' onClick={handleClick}> {value} </button>
     </div>
     </>
   )
@@ -20,13 +22,19 @@ function Board (){
     <>
     <div className='square-row-box'>
       < Square />
-    </div>
-
-    <div className='square-row-box'>
+      < Square />
       < Square />
     </div>
 
     <div className='square-row-box'>
+      < Square />
+      < Square />
+      < Square />
+    </div>
+
+    <div className='square-row-box'>
+      < Square />
+      < Square />
       < Square />
     </div>
   </>
@@ -42,10 +50,7 @@ export default function tic_tac_toe(){
       </div>
       <img className="App-logo" src= {logo} alt="App-logo" />
       <div className='board-box'>
-        {/* TODO-->  
-          1. Add board here 
-          2. Make board responsive to clicks
-          */}
+        <Board/>
       </div>
   </>
   
