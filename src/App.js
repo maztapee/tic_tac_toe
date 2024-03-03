@@ -1,55 +1,53 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 
-function App() {
-  function Square({value}){
-    function clickSquare(){
-      setValue('X');
-    };
-    const [value, setValue] = useState(null);
-    return <button className="square" onClick={clickSquare}> {value} </button>
-  };
-
-  function Board() {
-    const [squares, setSquares] = useState(Array(9).fill(null));
-    return <>
-      <div className="board-row">
-        <Square value={squares[0]}/>
-        <Square value={squares[1]}/>
-        <Square value={squares[2]}/>
-      </div>
-
-      <div className="board-row">
-        <Square value={squares[3]}/>
-        <Square value={squares[4]}/>
-        <Square value={squares[5]}/>
-      </div>
-
-      <div className="board-row">
-        <Square value={squares[6]}/>
-        <Square value={squares[7]}/>
-        <Square value={squares[8]}/>
-      </div>
-
-    </>
-  }
-
-
-
+function Square ({value}){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          First React App Remastering the Tic-Tac-Toe Demo.
-        </p>
-        <div className="board">
-          < Board/>
-        </div>
-      </header>
+    <>
+    <div className='square-row'>
+      <button className='squares'> {value} </button>
+      <button className='squares'> {value} </button>
+      <button className='squares'> {value} </button>
     </div>
-  );
-}
+    </>
+  )
+};
 
-export default App;
+function Board (){
+  return(
+    <>
+    <div className='square-row-box'>
+      < Square />
+    </div>
+
+    <div className='square-row-box'>
+      < Square />
+    </div>
+
+    <div className='square-row-box'>
+      < Square />
+    </div>
+  </>
+  )
+};
+
+// --------------------------------------ExPoRt ApP hErE--------------------------------------------------------------
+export default function tic_tac_toe(){
+  return(  
+  <>
+      <div className='react-logo'>
+        <h1 className="title">My Tic Tac Toe Game</h1>
+      </div>
+      <img className="App-logo" src= {logo} alt="App-logo" />
+      <div className='board-box'>
+        {/* TODO-->  
+          1. Add board here 
+          2. Make board responsive to clicks
+          */}
+      </div>
+  </>
+  
+  )
+};
