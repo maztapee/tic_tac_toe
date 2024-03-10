@@ -1,32 +1,26 @@
-@keyframes bounce {
-    0%, 100% {
-      transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    10% {
-      transform: translateY(calc(-50vh + 50px)) translateX(calc(-50vw + 50px)) rotate(90deg);
-    }
-    20% {
-      transform: translateY(calc(-50vh + 50px)) translateX(calc(50vw - 150px)) rotate(180deg);
-    }
-    30% {
-      transform: translateY(calc(-25vh + 50px)) translateX(calc(-25vw + 50px)) rotate(270deg);
-    }
-    40% {
-      transform: translateY(calc(-25vh + 50px)) translateX(calc(25vw - 50px)) rotate(360deg);
-    }
-    50% {
-      transform: translateY(calc(0vh + 50px)) translateX(calc(-50vw + 50px)) rotate(450deg);
-    }
-    60% {
-      transform: translateY(calc(25vh - 50px)) translateX(calc(-25vw + 50px)) rotate(540deg);
-    }
-    70% {
-      transform: translateY(calc(25vh - 50px)) translateX(calc(25vw - 50px)) rotate(630deg);
-    }
-    80% {
-      transform: translateY(calc(50vh - 150px)) translateX(calc(-50vw + 150px)) rotate(720deg);
-    }
-    90% {
-      transform: translateY(calc(50vh - 150px)) translateX(calc(50vw - 150px)) rotate(810deg);
-    }
-  }
+.game-info{
+  margin-bottom: 30px;
+  width: fit-content;
+  position: fixed;
+  bottom: 10px;
+}
+
+.game-info::before{
+  content: 'Toggle Move List';
+  position: fixed;
+  top: -20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 12px; /* Adjust font size */
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 2.5s ease, transform 2.5s ease; /* Fade-in effect */
+  transform: translateY(10%); /* Start off the screen */
+}
+
+.game-info:hover::before {
+  opacity: 1; /* Show tooltip on hover */
+  transform: translateY(2200%); /* Move the tooltip onto the screen */
+}

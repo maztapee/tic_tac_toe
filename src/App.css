@@ -73,3 +73,72 @@ h1{
 .square-row-box{
   display:flex;
 }
+
+.game-info{
+  margin-bottom: 30px;
+  width: fit-content;
+  position: sticky;
+  bottom: 10px;
+}
+
+.game-info::before{
+  content: 'Toggle Move List';
+  position: absolute;
+  top: -20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 12px; /* Adjust font size */
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 2.5s ease, transform 2.5s ease; /* Fade-in effect */
+  transform: translateY(10%); /* Start off the screen */
+}
+
+.game-info:hover::before {
+  opacity: 1; /* Show tooltip on hover */
+  transform: translateY(10%); /* Move the tooltip onto the screen */
+}
+
+.move-list {
+  text-align: center;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative; /* Needed for positioning the tooltip */
+}
+
+.move-list:hover {
+  border-style: groove;
+  border-radius: 10px;
+  background-color: rgb(75, 240, 231);
+  transition: all 0.4s ease; /* Slower transition for all properties */
+}
+
+.move-list::after {
+  content: "Click to go to this point";
+  position: absolute;
+  top: -20px; /* Adjust to position the tooltip */
+  right: -100%; /* Adjust to position the tooltip */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 12px; /* Adjust font size */
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 2.5s ease, transform 1.5s ease; /* Fade-in effect */
+  transform: translateX(100%); /* Start off the screen */
+}
+
+.move-list:hover::after {
+  opacity: 1; /* Show tooltip on hover */
+  transform: translateX(0%); /* Move the tooltip onto the screen */
+}
+
+
+.description{
+  margin-top: 15px;
+  padding-bottom: 10px;
+}

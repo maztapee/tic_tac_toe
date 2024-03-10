@@ -83,8 +83,8 @@ export default function TicTacToe() {
       description = 'Go to game start';
     }
     return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+      <li className='move-list' key={move}>
+        <div className='description' onClick={() => jumpTo(move)}>{description}</div>
       </li>
     );
   });
@@ -99,7 +99,7 @@ export default function TicTacToe() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <ul>{moves}</ul>
       </div>
     </>
   );
